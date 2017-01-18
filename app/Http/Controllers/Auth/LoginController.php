@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace spotiklan\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use spotiklan\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
