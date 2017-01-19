@@ -43,9 +43,12 @@ class DriverController extends Controller
      */
     public function destroy($id)
     {
-        //
         $data = Driver::find($id);
         $data->delete();
         return "Success";
+    }
+
+    public function show($id){
+        return Driver::find($id);
     }
 }
