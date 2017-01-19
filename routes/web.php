@@ -30,6 +30,7 @@ Route::get('/api', function () {
 Route::get('/api/drivers', 'DriverController@index');
 Route::post('/api/driver/insert', 'DriverController@save');
 Route::post('/api/driver/{id}', 'DriverController@show');
+Route::post('/api/driver/profile/{gid}', 'DriverController@profile');
 Route::post('/api/driver/update/{id}', 'DriverController@update');
 Route::post('/api/driver/delete/{id}', 'DriverController@destroy');
 

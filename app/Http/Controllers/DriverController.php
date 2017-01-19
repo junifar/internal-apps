@@ -48,6 +48,21 @@ class DriverController extends Controller
         return "Success";
     }
 
+    public function profile($gid){
+        $check = Driver::where('gid', '=', $gid);
+        if($check->count() == 0){
+            $data = new Driver();
+            $data['gid'] = $gid;
+            $data['name'] = Request::get('name');
+            $data['address'] = Request::get('address');
+            $data['identity_number'] = Request::get('identity_number');
+            $data['license_id'] = Request::get('license_id');
+            $data->save();
+            return $data->toArray();
+        }
+        return $check->get();
+    }
+
     public function show($id){
         return Driver::find($id);
     }
