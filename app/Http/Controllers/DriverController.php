@@ -21,7 +21,7 @@ class DriverController extends Controller
         $data['identity_number'] = Request::get('identity_number');
         $data['license_id'] = Request::get('license_id');
         $data->save();
-        return Driver::find($data['id']);
+        return $data;
     }
 
     function update($id){
