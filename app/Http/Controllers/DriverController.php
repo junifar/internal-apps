@@ -49,7 +49,7 @@ class DriverController extends Controller
     }
 
     public function profile($gid){
-        $check = Driver::where('gid', '=', $gid);
+        $check = Driver::where('gid','=',$gid);
         if($check->count() == 0){
             $data = new Driver();
             $data['gid'] = $gid;
@@ -58,7 +58,7 @@ class DriverController extends Controller
             if(isset($data['identity_number'])) $data['identity_number'] = Request::get('identity_number');
             if(isset($data['license_id'])) $data['license_id'] = Request::get('license_id');
             $data->save();
-            return $data->toArray();
+            return Driver::where('gid','=',$gid)->get();
         }
         return $check->get();
     }
