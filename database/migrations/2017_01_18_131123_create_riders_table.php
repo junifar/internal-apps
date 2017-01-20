@@ -15,10 +15,9 @@ class CreateRidersTable extends Migration
     {
         Schema::create('riders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }

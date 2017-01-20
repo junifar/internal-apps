@@ -16,10 +16,10 @@ class CreateDriversTable extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('gid')->unique();
-            $table->string('name');
-            $table->text('address');
-            $table->string('identity_number');
-            $table->string('license_id',30);
+            $table->string('name')->nullable();
+            $table->text('address')->nullable();
+            $table->string('identity_number')->nullable();
+            $table->string('license_id',30)->nullable();
             $table->timestamps();
         });
     }

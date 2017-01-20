@@ -53,10 +53,10 @@ class DriverController extends Controller
         if($check->count() == 0){
             $data = new Driver();
             $data['gid'] = $gid;
-            $data['name'] = Request::get('name');
-            $data['address'] = Request::get('address');
-            $data['identity_number'] = Request::get('identity_number');
-            $data['license_id'] = Request::get('license_id');
+            if(isset($data['name'])) $data['name'] = Request::get('name');
+            if(isset($data['address'])) $data['address'] = Request::get('address');
+            if(isset($data['identity_number'])) $data['identity_number'] = Request::get('identity_number');
+            if(isset($data['license_id'])) $data['license_id'] = Request::get('license_id');
             $data->save();
             return $data->toArray();
         }
