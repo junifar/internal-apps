@@ -2,7 +2,6 @@
 
 namespace spotiklan\Http\Controllers;
 
-//use Illuminate\Http\Request;
 use Request;
 use spotiklan\Driver;
 
@@ -60,6 +59,12 @@ class DriverController extends Controller
             $data->save();
             return Driver::where('gid','=',$gid)->get();
         }
+        return $check->get();
+    }
+
+    public function profileEnc($gid){
+        $gid = decrypt($gid);
+        $check = Driver::where('gid','=',$gid);
         return $check->get();
     }
 
