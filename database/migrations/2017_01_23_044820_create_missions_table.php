@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVehiclesTable extends Migration
+class CreateMissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateVehiclesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicles', function (Blueprint $table) {
+        Schema::create('missions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('driver_id');
-            $table->string('plat_number')->unique();
-            $table->string('no_stnk')->nullable();
+            $table->integer('brand_id');
+            $table->integer('advertiser_id');
             $table->string('name')->nullable();
+            $table->string('long')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('length')->nullable();
+            $table->integer('iterate')->nullable();
+            $table->decimal('Reward', 10, 2);
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateVehiclesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('missions');
     }
 }
