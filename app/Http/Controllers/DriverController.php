@@ -66,4 +66,10 @@ class DriverController extends Controller
     public function show($id){
         return Driver::find($id);
     }
+
+    public function profileKey($gid){
+        $check = Driver::where('gid','=',$gid)->first();
+        if ($check) return encrypt($gid . "-" . $check->id);
+        else return abort(204);
+    }
 }
