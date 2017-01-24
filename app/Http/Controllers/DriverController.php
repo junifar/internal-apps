@@ -24,7 +24,9 @@ class DriverController extends Controller
     }
 
     function update($id){
-        $data = Driver::find($id);
+        $gid = decrypt($id);
+        $data = Driver::where('gid','=',$gid)->first();
+//        $data = Driver::find($id);
         $data['gid'] = Request::get('gid');
         $data['name'] = Request::get('name');
         $data['address'] = Request::get('address');
