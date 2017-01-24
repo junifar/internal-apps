@@ -27,11 +27,10 @@ class DriverController extends Controller
         $gid = decrypt($id);
         $data = Driver::where('gid','=',$gid)->first();
 //        $data = Driver::find($id);
-//        $data['gid'] = Request::get('gid');
-        $data['name'] = Request::get('name');
-        $data['address'] = Request::get('address');
-        $data['identity_number'] = Request::get('identity_number');
-        $data['license_id'] = Request::get('license_id');
+        if (Request::get('name') != null) $data['name'] = Request::get('name');
+        if (Request::get('address') != null) $data['address'] = Request::get('address');
+        if (Request::get('identity_number') != null) $data['identity_number'] = Request::get('identity_number');
+        if (Request::get('license_id') != null) $data['license_id'] = Request::get('license_id');
         $data->save();
         return $data;
     }
