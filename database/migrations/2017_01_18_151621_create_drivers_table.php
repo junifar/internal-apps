@@ -23,6 +23,8 @@ class CreateDriversTable extends Migration
             $table->string('phone')->nullable();
             $table->string('handphone')->nullable();
             $table->string('email')->nullable();
+            $table->date('birthday')->nullable();
+            $table->integer('gender')->nullable();
             $table->timestamps();
         });
     }

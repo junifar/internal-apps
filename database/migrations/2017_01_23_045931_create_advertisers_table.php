@@ -23,6 +23,8 @@ class CreateAdvertisersTable extends Migration
             $table->string('handphone')->nullable();
             $table->string('email')->nullable();
             $table->integer('company_id');
+            $table->date('birthday')->nullable();
+            $table->integer('gender')->nullable();
             $table->timestamps();
         });
     }
